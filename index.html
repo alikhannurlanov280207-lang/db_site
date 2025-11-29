@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnDB</title>
+    <link rel="stylesheet" href="../style/style1.css"> 
+    <link rel="icon" href="../assets/logo.png" type="image/png">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>  
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+      <img src="../assets/logo.png" alt="LearnDB Logo" class="logo" />
+      <span class="site-name">LearnDB</span>
+    </div>
+    <nav class="navbar-right">
+      <div class="dropdown">
+        <a href="#" id="courses-toggle">Courses</a>
+        <div class="dropdown-content" id="courses-dropdown">
+          <a href="course1.html">Көлемді деректерді өндеуді ұйымдастыру</a>
+          <a href="course2.html">Мәліметтер қоры түсінігін және мәліметтерді басқарудағы ДҚБЖ рөлін анықтау.</a>
+          <a href="course3.html">SQL тілі.SQL тілі командалары (операторлары)</a>
+        </div>
+      </div>
+      
+      <!-- ВОТ ЭТО НОВАЯ СЕКЦИЯ PRACTICE -->
+      <div class="dropdown">
+        <a href="#" id="practice-toggle">Practice</a>
+        <div class="dropdown-content" id="practice-dropdown">
+          <a href="practice1.html">Тест1</a>
+          <a href="practice2.html">Тест2</a>
+          <a href="practice3.html">Тест3</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('courses-toggle');
+      const dropdown = document.querySelector('.dropdown');
+  
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('show');
+      });
+  
+      // Закрывать меню, если клик вне
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && e.target !== toggle) {
+          dropdown.classList.remove('show');
+        }
+      });
+    });
+  </script>
+
+    <div id="tsparticles"></div>
+
+    <section class="roadmap-section">
+      <div class="roadmap-left">
+        <h1 class="site-title">LearnDB</h1>
+        <p class="site-description">
+          Бұл сайт — мәліметтер базаларын үйренгісі келетіндерге арналған толыққанды оқу алаңы. 
+          Мұнда сіз SQL, PostgreSQL сынды танымал технологиялармен жұмыс істеуді үйренесіз.Теориямен қатар практикалық тапсырмалар мен визуалды материалдар арқылы дағдыларыңызды жетілдіріп, 
+          нақты жобалармен жұмыс істеуге дайын боласыз.
+        </p>        
+      </div>
+      
+      <div class="progress-roadmap">
+        <h2 class="h2">Деректер базасының жол картасы</h2>
+        <div class="card-grid">
+          <div class="topic-card" data-topic="sql-basics">SQL Негіздері</div>
+          <div class="topic-card" data-topic="postgresql-setup">PostgreSQL Орнату</div>
+          <div class="topic-card" data-topic="joins">Join (Қосылулар)</div>
+          <div class="topic-card" data-topic="indexes">Индекстер</div>
+          <div class="topic-card" data-topic="constraints">Шектеулер (Constraints)</div>
+          <div class="topic-card" data-topic="normalization">Нормализация</div>
+          <div class="topic-card" data-topic="procedures">Сақталған процедуралар</div>
+          <div class="topic-card" data-topic="functions">Функциялар</div>
+          <div class="topic-card" data-topic="transactions">Транзакциялар</div>
+          <div class="topic-card" data-topic="triggers">Триггерлер</div>
+        </div>        
+      </div>
+      
+      <!-- Модальное окно -->
+      <div id="infoModal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <div id="modalContent">
+            <h2>Информация</h2>
+            <p>Контент здесь будет обновляться.</p>
+          </div>
+        </div>
+      </div>       
+    </section>
+
+    <div id="videoModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <iframe id="youtubePlayer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <section class="tips-slider-section">
+      <h2 class="h2">SQL бойынша кеңестер</h2>
+      <div class="tips-slider">
+        <div class="tip-card">
+          <img src="https://cdn-icons-png.freepik.com/512/9406/9406246.png?ga=GA1.1.235760017.1727422285" alt="SQL Icon">
+          <h3>SELECT</h3>
+          <p>Деректерді кестеден алу үшін SELECT қолданылады.</p>
+        </div>
+        <div class="tip-card">
+          <img src="https://cdn-icons-png.freepik.com/512/318/318838.png?ga=GA1.1.235760017.1727422285" alt="Index Icon">
+          <h3>INDEX</h3>
+          <p>Сұрауларды жылдамдату үшін индекстерді пайдаланыңыз.</p>
+        </div>
+        <div class="tip-card">
+          <img src="https://cdn-icons-png.freepik.com/512/5705/5705819.png?ga=GA1.1.235760017.1727422285" alt="Join Icon">
+          <h3>JOIN</h3>
+          <p>Бірнеше кестені байланыстыру үшін JOIN пайдаланыңыз.</p>
+        </div>
+        <div class="tip-card">
+          <img src="https://cdn-icons-png.freepik.com/512/9899/9899369.png?ga=GA1.1.235760017.1727422285" alt="WHERE Icon">
+          <h3>WHERE</h3>
+          <p>Кестеден нақты деректерді сүзу үшін WHERE шартын қолданыңыз.</p>
+        </div>
+        <div class="tip-card">
+          <img src="https://cdn-icons-png.freepik.com/512/16321/16321537.png?ga=GA1.1.235760017.1727422285" alt="Group By Icon">
+          <h3>GROUP BY</h3>
+          <p>Мәліметтерді топтап, жиынтық есептеулер жүргізу үшін қолданыңыз.</p>
+        </div>
+        <div class="tip-card">
+          <img src="https://cdn-icons-png.freepik.com/512/16518/16518661.png?ga=GA1.1.235760017.1727422285" alt="Order By Icon">
+          <h3>ORDER BY</h3>
+          <p>Нәтижелерді өсу немесе кему ретімен сұрыптау үшін ORDER BY қолданылады.</p>
+        </div>
+        <div class="tip-card">
+          <img src="https://cdn-icons-png.freepik.com/512/18769/18769439.png?ga=GA1.1.235760017.1727422285" alt="Limit Icon">
+          <h3>LIMIT</h3>
+          <p>Нәтижелердің санын шектеу үшін LIMIT операторын пайдаланыңыз.</p>
+        </div>
+        <div class="tip-card">
+          <img src="https://cdn-icons-png.freepik.com/512/15058/15058564.png?ga=GA1.1.235760017.1727422285" alt="Foreign Key Icon">
+          <h3>FOREIGN KEY</h3>
+          <p>Кестелер арасындағы байланысты орнату үшін FOREIGN KEY пайдаланыңыз.</p>
+        </div>
+      </div>
+    </section>
+     
+    
+    <section class="video-section">
+      <h2 class="h2">SQL видео сабақтар</h2>
+      <div class="video-grid">
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/kcY_7iSIDA0" 
+        title="PostgreSQL деректер қорын басқару жүйесін Windows операциялық жүйесіне орнату." 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/c7TPVNH6o58" 
+        title="Название видео" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/ieNl_PuswKI" 
+        title="Название видео" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <iframe 
+        width="560"
+        height="315" 
+        src="https://www.youtube.com/embed/KGYQ94rCzcI" 
+        title="Название видео" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/djfGJ6cCzLA" 
+        title="Название видео" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/yAZ5lSCHsX4" 
+        title="Название видео" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/SorjD4XnSZQ" 
+        title="Название видео" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/n2Fluyr3lbc" 
+        title="Название видео" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+        <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/3JW732GrMdg" 
+        title="Название видео" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <h2 class="h2">Біз туралы</h2>
+      <div class="about-content">
+        <div class="teacher-info">
+          <h3 class="teacher-name">Диляра Нұрланқызы</h3>
+          <p class="teacher-title">өндірістік оқыту<br>шебері</p>
+        </div>
+        <div class="teacher-photo">
+          <img src="../assets/teacher.jpg" alt="Ұстаз суреті">
+        </div>
+      </div>
+    </section>    
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>Мекенжай</h4>
+          <p>Астана қ., Мәңгілік ел даңғылы, Expo C1</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone-alt"></i>
+          <h4>Телефон</h4>
+          <p>+123 456 789</p>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <h4>Пошта</h4>
+          <p>dilyara.nurlankyzy@gmail.com</p>
+        </div>
+      </div>
+    
+      <div class="contact-form">
+        <h2>Байланыс формасы</h2>
+        <p>Сауалдарыңыз болса, төмендегі форманы толтырыңыз.</p>
+    
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Атыңыз" />
+          <input type="email" id="email" placeholder="Электрондық пошта" />
+          <textarea id="message" placeholder="Хабарлама"></textarea>
+          <button type="submit">Жіберу</button>
+        </form>
+        <div id="formStatus" class="form-status"></div>
+      </div>
+    </div>  
+
+    <footer>
+      <p>© 2025 LearnDB — SQL және PostgreSQL әзірлеу және оқыту.</p>
+    </footer>
+    <style>
+      footer {
+        text-align: center; 
+        margin-top: 50px; 
+        padding: 20px; 
+      }
+      
+      footer p {
+        color: #6c757d;
+        font-size: 14px; 
+      }      
+    </style>
+<script src="../style/script.js" defer></script>   
+</body>
+</html>

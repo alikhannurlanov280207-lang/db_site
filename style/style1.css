@@ -1,0 +1,584 @@
+/* Сброс стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #24282d; /* как у NeetCode */
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #24282d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #1f1f1f;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Лёгкая тень для красоты */
+}
+
+.navbar-right {
+  display: flex;
+  gap: 20px; /* расстояние между пунктами */
+  margin-right: auto; /* ← Это сдвинет вправо весь блок, но нам нужно наоборот */
+  margin-left: 750px;  /* ← Добавь это, чтобы сдвинуть меню левее */
+  align-items: center;
+}
+
+
+/* Левая часть (Логотип + Название) */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-4px); /* Поднимется при наведении */
+}
+
+.site-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Правая часть (Ссылки и кнопка) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar-right a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.navbar-right a:hover {
+  color: #ffffff;
+}
+
+/* Кнопка Sign In */
+.signin-btn {
+  background-color: #272727;
+  color: #ffffff;
+  border: 1px solid #3a3a3a;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.signin-btn:hover {
+  background-color: #3a3a3a;
+  border-color: #525252;
+}
+
+
+.progress-roadmap h2 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.topic-card {
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #fff;
+  transition: transform 0.3s;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.topic-card:hover {
+  transform: translateY(-5px);
+}
+
+.completed { background-color: #22c55e; } /* 🟢 зелёный */
+.in-progress { background-color: #3b82f6; } /* 🔵 синий */
+.not-started { background-color: #9ca3af; } /* ⚪ серый */
+
+/* Footer */
+.footer {
+  background-color: #24282d;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 40px; /* Отступ сверху для футера */
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Новый раздел с описанием и картами */
+.roadmap-section {
+  display: flex;
+  padding: 80px 40px 40px;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: stretch; /* ВЫРАВНИВАНИЕ ПО ВЫСОТЕ */
+}
+
+.roadmap-left {
+  flex: 1;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  /* margin-top удалён */
+}
+
+.site-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.site-description {
+  font-size: 22px;
+  line-height: 1.6;
+  color: #ffffff;
+  font-weight: 500;
+  white-space: pre-line; /* сохраняет переносы строк */
+}
+
+.roadmap-left,
+.progress-roadmap {
+  flex: 1;
+  background-color: transparent; /* 🔄 Прозрачный фон */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: none; /* 🔄 Убираем тень (если не нужна) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.h2 {
+  text-align: center;
+  font-size: 36px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 750;
+  margin-bottom: 30px; /* Добавили отступ снизу */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #1f1f1f;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.close-button {
+  color: #ccc;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: white;
+}
+
+.tips-slider-section {
+  margin-top: 60px;
+  padding: 40px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.tips-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.tip-card {
+  background-color: #2a2f36;
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 250px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.tip-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.tip-card:hover {
+  transform: scale(1.05);
+}
+
+.video-section {
+  padding: 40px 20px;
+  background-color: transparent;
+  text-align: center;
+}
+
+.video-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.video-grid iframe {
+  width: 100%;
+  height: 180px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-section {
+  background-color: transparent;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.teacher-photo img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 16px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.teacher-info {
+  flex: 1;
+  min-width: 280px;
+  padding-left: 350px;
+}
+
+.teacher-info h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.teacher-info p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.teacher-photo-full img {
+  max-width: 400px; /* можно менять размер */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-name {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-align: start;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+
+.teacher-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #e0e0e0;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  text-align: start;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+}
+
+
+.teacher-photo {
+  flex: 1;
+  text-align: center;
+  margin: 0 auto;
+  padding-right: 0; 
+  margin-right: 300px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  border-radius: 15px;
+}
+
+@keyframes floatImage {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(3px, -3px) rotate(1deg); }
+  50%  { transform: translate(0, -6px) rotate(0deg); }
+  75%  { transform: translate(-3px, -3px) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.teacher-photo img.float {
+  animation: floatImage 2s infinite ease-in-out;
+}
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.contact-container {
+  display: flex;
+  gap: 40px;
+  background: transparent;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.info-item {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.info-item i {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.info-item h4 {
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.contact-form {
+  flex: 2;
+  min-width: 300px;
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-form p {
+  margin-bottom: 20px;
+  color: whitesmoke;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: none;
+  background: #eee;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+form button {
+  padding: 12px 24px;
+  background-color: #327bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #265ecf;
+}
+
+.form-status {
+  margin-top: 12px;
+  font-weight: bold;
+  display: none;
+}
+
+.form-status.success {
+  color: green;
+}
+
+.form-status.error {
+  color: red;
+}
+
+/* Dropdown wrapper */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Скрытое меню */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  padding: 10px 16px;
+  display: block;
+  color: white; /* ← Сделали белыми */
+  background-color: #333; /* Тёмный фон для контраста */
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #555; /* Цвет при наведении */
+}
+
+
+/* Показать меню при наведении или клике */
+.dropdown.show .dropdown-content {
+  display: flex;
+}
+
+/* Общий стиль для навбара */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #1f1f1f;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Ссылки в навбаре */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #00adb5;
+}
+
+/* Стиль выпадающего меню */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 120%; /* чуть ниже кнопки */
+  left: 0;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  padding: 10px 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  display: none;
+  flex-direction: column;
+  min-width: 280px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ссылки внутри выпадающего меню */
+.dropdown-content a {
+  color: white;
+  padding: 12px 20px;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #444;
+  color: #00adb5;
+}
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-/f3HvjvW+bZYxCOfK/0EQcWz+uHqvTCN6bl7ZErV4D/cQEvJ3xWg7z2M4F4obMQpLkzlwN5qglK6a3IQcF8F3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="C:\Users\Lenovo\Desktop\dbsite\assets\logo.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Тест – Көлемді деректерді өндеуді ұйымдастыру</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #24282d;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffffee;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .question-block {
+      margin-bottom: 25px;
+    }
+
+    .question {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 8px;
+      background: #f1f1f1;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    .options label:hover {
+      background: #e0e0e0;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto 10px;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background-color: #0077cc;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    #result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    
+    .buttons a {
+      text-decoration: none;
+      background-color: #00adb5;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .buttons a:hover {
+      background-color: #019ba3;
+      transform: translateY(-2px);
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Мәліметтер қоры түсінігін және мәліметтерді басқарудағы ДҚБЖ рөлін анықтау</h1>
+
+    <form id="quiz-form">
+      <!-- Вопросы: -->
+<div class="question-block">
+    <p class="question">1. Мәліметтер қоры дегеніміз не?</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="correct">Деректерді ұйымдастырылған түрде сақтау жүйесі</label>
+      <label><input type="radio" name="q1" value="wrong">Тек электрондық хаттар сақтау жүйесі</label>
+      <label><input type="radio" name="q1" value="wrong">Интернет браузері</label>
+      <label><input type="radio" name="q1" value="wrong">Компьютердің қатты дискісі</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">2. ДҚБЖ (деректер қоры басқару жүйесі) негізгі мақсаты қандай?</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="correct">Деректерді сақтау, өңдеу және іздеуді қамтамасыз ету</label>
+      <label><input type="radio" name="q2" value="wrong">Ойындар орнату</label>
+      <label><input type="radio" name="q2" value="wrong">График сызу</label>
+      <label><input type="radio" name="q2" value="wrong">Тек мәтін жазу</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">3. Қатынастық деректер қоры неге негізделген?</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="correct">Кестелерге</label>
+      <label><input type="radio" name="q3" value="wrong">Сызбаларға</label>
+      <label><input type="radio" name="q3" value="wrong">Файлдар ағашына</label>
+      <label><input type="radio" name="q3" value="wrong">Бағдарламаларға</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">4. SQL тілі не үшін қолданылады?</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="correct">Мәліметтер қорымен жұмыс істеу үшін</label>
+      <label><input type="radio" name="q4" value="wrong">Графикалық дизайн жасау үшін</label>
+      <label><input type="radio" name="q4" value="wrong">Ойын жасау үшін</label>
+      <label><input type="radio" name="q4" value="wrong">Кесте салу үшін</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">5. Мәліметтер қорындағы кестенің жолы қалай аталады?</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="correct">Жазба (record)</label>
+      <label><input type="radio" name="q5" value="wrong">Бағана</label>
+      <label><input type="radio" name="q5" value="wrong">Ұяшық</label>
+      <label><input type="radio" name="q5" value="wrong">Файл</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">6. Мәліметтер қорын не үшін нормализациялайды?</p>
+    <div class="options">
+      <label><input type="radio" name="q6" value="correct">Деректердің қайталануын азайту үшін</label>
+      <label><input type="radio" name="q6" value="wrong">Файл өлшемін үлкейту үшін</label>
+      <label><input type="radio" name="q6" value="wrong">Деректерді жою үшін</label>
+      <label><input type="radio" name="q6" value="wrong">Кестелерді біріктіру үшін</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">7. SQL тілінде деректерді қосу үшін қандай команда қолданылады?</p>
+    <div class="options">
+      <label><input type="radio" name="q7" value="correct">INSERT</label>
+      <label><input type="radio" name="q7" value="wrong">SELECT</label>
+      <label><input type="radio" name="q7" value="wrong">DELETE</label>
+      <label><input type="radio" name="q7" value="wrong">CREATE</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">8. Қайсысы кең таралған ДҚБЖ болып табылады?</p>
+    <div class="options">
+      <label><input type="radio" name="q8" value="correct">MySQL</label>
+      <label><input type="radio" name="q8" value="wrong">Photoshop</label>
+      <label><input type="radio" name="q8" value="wrong">PowerPoint</label>
+      <label><input type="radio" name="q8" value="wrong">AutoCAD</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">9. ДҚБЖ-да мәліметтердің бүтіндігі дегеніміз не?</p>
+    <div class="options">
+      <label><input type="radio" name="q9" value="correct">Деректердің дәлдігі мен сенімділігі</label>
+      <label><input type="radio" name="q9" value="wrong">Деректерді көшіру</label>
+      <label><input type="radio" name="q9" value="wrong">Бейнемен көрсету</label>
+      <label><input type="radio" name="q9" value="wrong">Деректерді өшіру</label>
+    </div>
+  </div>
+  
+  <div class="question-block">
+    <p class="question">10. Мәліметтер қоры қай салада жиі қолданылады?</p>
+    <div class="options">
+      <label><input type="radio" name="q10" value="correct">Банк жүйесінде</label>
+      <label><input type="radio" name="q10" value="wrong">Сурет салуда</label>
+      <label><input type="radio" name="q10" value="wrong">Музыкада</label>
+      <label><input type="radio" name="q10" value="wrong">Кино түсіруде</label>
+    </div>
+  </div>  
+
+      <button type="button" onclick="checkAnswers()">Жауаптарды тексеру</button>
+    </form>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const correct = document.querySelectorAll('input[value="correct"]:checked').length;
+      const total = 10;
+      const incorrect = document.querySelectorAll('input[type="radio"]:checked').length - correct;
+      const resultText = `✅ Дұрыс жауаптар: ${correct} / ${total} \n❌ Қате жауаптар: ${incorrect}`;
+      document.getElementById("result").innerText = resultText;
+    }
+  </script>
+
+    <!-- Кнопки -->
+    <div class="buttons">
+      <a href="index.html"><i class="fas fa-home"></i>Басты бет</a>
+      <a href="course2.html"><i class="fas fa-brain"></i>Теория</a>
+    </div>      
+</body>
+</html>
